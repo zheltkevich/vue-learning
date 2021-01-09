@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Урок №3</title>
+</head>
+<body>
+    <h1>Урок №3: Интерполяция (v-on)</h1>
+    <p>
+        <a href="/">В начало</a> |
+        <a href="#">Предыдуйщий урок</a> |
+        <a href="4.html">Следующий урок</a>
+    </p>
+    <hr>
+    
+    <div id="app">
+        <input type="text" v-on:input="changeName">
+        <h2>String: {{ name }}</h2>
+        <h2>Sum (10+60): {{ 10 + 60 }}</h2>
+        <h2>Number: {{ number }}</h2>
+        <h2>Method: {{ sayHello() }}</h2>
+        <h2>If statement: {{ isOk ? 'I am OK!)' : 'I am not OK((' }}</h2>
+        <h2>Functions: {{ string.split('').reverse().join('') }}</h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'Vue!',
+                number: 100,
+                isOk: false,
+                string: 'My name is Aleksandr'
+            },
+            methods: {
+                changeName: function(event) {
+                    this.name = event.target.value
+                },
+                sayHello: function() {
+                    return 'I am function'
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

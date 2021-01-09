@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Урок №7</title>
+</head>
+<body>
+    <h1>Урок №7: Передача параметров в метод</h1>
+    <p>
+        <a href="/">В начало</a> |
+        <a href="5.html">Предыдуйщий урок</a> |
+        <a href="7.html">Следующий урок</a>
+    </p>
+    <hr>
+
+    <div id="app">
+        <h2>Счетчик №1: -- {{ counter1 }} --</h2>
+        <button v-on:click="riseCounter">Увеличить</button>
+
+        <h2 v-on:mouseover="onHover">Счетчик №2: -- {{ counter2 }} --</h2>
+        <button v-on:click="counter2++">Увеличить</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                counter1: 0,
+                counter2: 0
+            },
+            methods: {
+                riseCounter: function() {
+                    this.counter1++
+                },
+                onHover: function(event) {
+                    event.target.style.color = 'red'
+                }
+            }
+        })
+        
+    </script>
+</body>
+</html>
