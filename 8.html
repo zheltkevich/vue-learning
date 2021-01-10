@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Урок №8</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Урок №8: Модификаторы событий</h1>
+    <p>
+        <a href="index.html">В начало</a> |
+        <a href="7.html">Предыдуйщий урок</a> |
+        <a href="9.html">Следующий урок</a>
+    </p>
+    <hr>
+
+    <div id="app">
+
+        <!-- Два решения одной задачи -->
+        <h2>
+            <a href="https://www.google.ru/" target="_blank" v-on:click="clickOnGoogle">Google</a>
+        </h2>
+        <h2>
+            <a href="https://www.google.ru/" target="_blank" v-on:click.prevent="">Яндекс</a>
+        </h2>
+
+        <h2 v-on:mousemove="handleMouseMove">
+            X: {{ x }} / Y: {{ y }}
+
+            <span v-on:mousemove.stop="">Не изменять при наведении</span>
+        </h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                x: 0,
+                y: 0
+            },
+            methods: {
+                clickOnGoogle: function(event) {
+                    event.preventDefault()
+                },
+                handleMouseMove: function(event) {
+                    this.x = event.clientX
+                    this.y = event.clientY
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
