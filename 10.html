@@ -18,8 +18,15 @@
     <hr>
 
     <div id="app">
-        <input type="text" v-on:keyup.enter.space="alertValue">
-
+        <h2>
+            <a v-bind:href="url" target="_blank">Google</a>
+            <a :href="url" target="_blank">Google</a>
+        </h2>
+        <h2>
+            Counter: {{ counter }}
+        </h2>
+        <button @click="counter++">Rise</button>
+        <button v-on:click="counter++">Rise</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -28,11 +35,8 @@
         new Vue({
             el: '#app',
             data: {
-            },
-            methods: {
-                alertValue: function(event) {
-                    alert(event.target.value)
-                }
+                url: 'https://www.google.ru/',
+                counter: 0
             }
         })
 
