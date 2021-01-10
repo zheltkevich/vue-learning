@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Урок №12</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid black;
+            display: inline-block;
+            margin: 40px;
+        }
+
+        .red {background: red;}
+        .blue {background: blue;}
+        .green {background: green;}
+    </style>
+</head>
+<body>
+    <h1>Урок №12: Работа с CSS-классами</h1>
+    <p>
+        <a href="index.html">В начало</a> |
+        <a href="11.html">Предыдуйщий урок</a> |
+        <a href="13.html">Следующий урок</a>
+    </p>
+    <hr>
+
+    <div id="app">
+
+        <div
+            class="circle"
+            @click="isActive = !isActive"
+            :class="{'red': isActive, 'green': !isActive}"
+        ></div>
+
+        <div
+            class="circle"
+            @click="isActive = !isActive"
+            :class="getCssClasses"
+        ></div>
+
+        <div class="circle" :class="[color, {'red': isActive}]"></div>
+        <input type="text" v-model="color">
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                isActive: false,
+                color: 'blue'
+            },
+            computed: {
+                getCssClasses: function() {
+                    return {
+                        'red': this.isActive,
+                        'green': !this.isActive
+                    }
+                }
+            },
+            methods: {}
+        })
+
+    </script>
+</body>
+</html>
