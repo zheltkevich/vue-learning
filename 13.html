@@ -20,7 +20,7 @@
     <div id="app">
 
         <h2 v-if="isVisible">I am visible!</h2>
-        <h2 v-else>No I am not!</h2>
+        <h3 v-else>No I am not!</h3>
         <button @click="isVisible = !isVisible">Toggle</button>
 
         <h2 v-if="type === 'a'">A</h2>
@@ -40,18 +40,18 @@
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script>
 
-        new Vue({
-            el: '#app',
-            data: {
-                isVisible: true,
-                type: 'a',
-                isVisible2: false
-            }
-        })
+    new Vue({
+        el: '#app',
+        data: {
+            isVisible: true,
+            type: 'a',
+            isVisible2: false
+        }
+    })
 
-    </script>
+</script>
 </body>
 </html>
